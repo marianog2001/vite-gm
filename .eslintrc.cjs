@@ -13,25 +13,21 @@ module.exports = {
                 node: true
             },
             files: [
-                '.eslintrc.{js,cjs}', './**/*.{ts,tsx}'
+                '.eslintrc.{js,cjs}'
             ],
             parserOptions: {
                 sourceType: 'script'
-            },
-            extends: [
-                'plugin:@typescript-eslint/recommended-requiring-type-checking'
-            ]
+            }
         }
     ],
     parserOptions: {
         ecmaVersion: 'latest',
-        sourceType: 'module',
-        project: './tsconfig.json'
+        sourceType: 'module'
     },
     plugins: [
         'react'
     ],
     rules: {
-        'react/react-in-jsx-scope' : 'off'
+        'indent': [4, 'error']
     }
 }
