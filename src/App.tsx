@@ -1,13 +1,16 @@
 import React from 'react'
 import { Navbar } from './Components/Navbar/Navbar'
 import { Outlet } from 'react-router-dom'
+import { ThemeProvider } from '@mui/material'
+import { CustomTheme } from './Components/Common/Theme.tsx'
 
 function App(): React.JSX.Element {
     return (
-        // eslint-disable-next-line react/react-in-jsx-scope
         <>
+        <ThemeProvider theme={CustomTheme}>
             <Navbar />
             <Outlet />
+        </ThemeProvider>    
         </>
     )
 }

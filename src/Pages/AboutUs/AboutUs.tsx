@@ -1,6 +1,6 @@
 
 
-function AboutUs() {
+export function AboutUs() {
     return (
         <div>
             Hola

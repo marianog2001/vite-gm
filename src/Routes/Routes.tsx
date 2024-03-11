@@ -1,13 +1,21 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from '../App.tsx';
-import LandingPage from '../Pages/LandingPage/LandingPage.tsx';
+import App from '../App';
+import { LandingPage } from '../Pages/LandingPage/LandingPage';
+import { AboutUs } from '../Pages/AboutUs/AboutUs'
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <App />,
         children: [
-            { path: 'LandingPage', element: <LandingPage /> }
+            {
+                path: '/',
+                element: <LandingPage />
+            },
+            {
+                path: '/About',
+                element: <AboutUs />
+            }
         ]
     }
 ])
