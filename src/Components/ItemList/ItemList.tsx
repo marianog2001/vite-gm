@@ -1,7 +1,18 @@
-export function ItemList ({ items }): JSX.Element {
-    return (
-        <div>
-            {items.map(item => <Item key={item.id} {...item} />)}
-        </div>
-    )
+import { Item } from "../Item/Item";
+import { ItemInterface } from "../../interfaces/ItemInterface";
+
+interface ItemListProps {
+    items: ItemInterface[]
 }
+
+export function ItemList({items}:ItemListProps): JSX.Element {
+    return (
+        <div className="flex flex-wrap ">
+            {items.map((item) => (
+                <Item item={item} />
+            ))}
+        </div>
+    );
+}
+
+

@@ -1,15 +1,34 @@
-import { useState } from 'react'
-import { ItemList } from '../ItemList/ItemList'
+import { useState, useEffect } from 'react';
+import { ItemList } from '../ItemList/ItemList';
 
-export function ItemListContainer () {
+type ItemListContainerProp = {
+    endpoint:string
+}
 
-    const (loading, setLoading) = useState(false)
+export function ItemListContainer({endpoint}:ItemListContainerProp) {
+    const [loading, setLoading] = useState(true);
 
-    const (items, setItems) = useState([])
+    const [items, setItems] = useState([]);
+
+    
+
+    useEffect(() => {
+        setLoading(true);
+        fetch(endpoint)
+            .then((res) => res.json())
+            .then((data) => {
+                setItems(data)
+                setLoading(false)
+            });
+    }, []);
+
+    if (loading) {
+        return <div>Loading...</div>; // Display a loading indicator when data is being fetched
+    }
 
     return (
         <div>
-            <ItemList />
+            <ItemList items={items}/>
         </div>
-    )
+    );
 }
